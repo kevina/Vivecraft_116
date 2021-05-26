@@ -35,7 +35,7 @@ public class GuiRoomscaleSettings extends GuiVROptionsBase
 
 	@Override
 	protected void loadDefaults() {
-		this.settings.weaponCollision = 2;
+		this.settings.weaponCollision = VRSettings.WC_SURVIVAL;
 		this.settings.realisticClimbEnabled = true;
 		this.settings.realisticJumpEnabled = true;
 		this.settings.realisticSneakEnabled = true;

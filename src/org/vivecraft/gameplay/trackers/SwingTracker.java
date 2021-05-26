@@ -7,6 +7,7 @@ import org.vivecraft.api.Vec3History;
 import org.vivecraft.control.ControllerType;
 import org.vivecraft.provider.MCOpenVR;
 import org.vivecraft.reflection.MCReflection;
+import org.vivecraft.settings.VRSettings;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.block.LadderBlock;
@@ -76,9 +77,9 @@ public class SwingTracker extends Tracker{
 		Minecraft mc = Minecraft.getInstance();
 		if (mc.currentScreen !=null)
 			return false;
-		if (mc.vrSettings.weaponCollision == 0)
+		if (mc.vrSettings.weaponCollision == VRSettings.WC_DISABLED)
 			return false;
-		if (mc.vrSettings.weaponCollision == 2)
+		if (mc.vrSettings.weaponCollision == VRSettings.WC_SURVIVAL)
 			return !p.isCreative();
 		if (mc.vrSettings.seated)
 			return false;
@@ -156,6 +157,9 @@ public class SwingTracker extends Tracker{
 			//            		tool = true;
 			//            	}
 			//            }    
+
+			if (mc.vrSettings.weaponCollision == VRSettings.WC_WEAPONS && !sword)
+				continue;
 
 			if (sword){
 				entityReachAdd = 1.9f;

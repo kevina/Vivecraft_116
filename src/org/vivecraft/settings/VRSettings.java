@@ -142,11 +142,17 @@ public class VRSettings
     public int rightclickDelay = 6 ;
 	//
 
+    public static final int WC_DISABLED = 0;
+    public static final int WC_ENABLED = 1;
+    public static final int WC_SURVIVAL = 2;
+    public static final int WC_WEAPONS = 3;
+    public static final int WC_MAX = 3;
+
     //Locomotion
     public int inertiaFactor = INERTIA_NORMAL;
     public boolean walkUpBlocks = true;     // VIVE default to enable climbing
     public boolean simulateFalling = true;  // VIVE if HMD is over empty space, fall
-    public int weaponCollision = 2;  // VIVE weapon hand collides with blocks/enemies
+    public int weaponCollision = WC_SURVIVAL;  // VIVE weapon hand collides with blocks/enemies
     public float movementSpeedMultiplier = 1.0f;   // VIVE - use full speed by default
     public int vrFreeMoveMode = this.FREEMOVE_CONTROLLER;
     public boolean vrLimitedSurvivalTeleport = true;
@@ -1053,12 +1059,14 @@ public class VRSettings
             case SIMULATE_FALLING:
                 return this.simulateFalling ? var4 + Lang.getOn() : var4 + Lang.getOff();
             case WEAPON_COLLISION:
-              if(this.weaponCollision == 0)
+              if(this.weaponCollision == WC_DISABLED)
             	  return var4 + Lang.getOff();
-              else if(this.weaponCollision == 1)
+              else if(this.weaponCollision == WC_ENABLED)
             	  return var4 + Lang.getOn();
-              else if(this.weaponCollision == 2)
+              else if(this.weaponCollision == WC_SURVIVAL)
             	  return var4 + Lang.get("vivecraft.options.auto");
+              else if(this.weaponCollision == WC_WEAPONS)
+                  return var4 + Lang.get("vivecraft.options.weaponcollison.weapons");
             case ALLOW_CRAWLING:
                 return this.vrAllowCrawling ? var4 + Lang.getOn() : var4 + Lang.getOff();
             case LIMIT_TELEPORT:
@@ -1449,7 +1457,7 @@ public class VRSettings
                 break;
             case WEAPON_COLLISION:
                 this.weaponCollision++;
-                if(this.weaponCollision > 2)
+                if(this.weaponCollision > WC_MAX)
                 	this.weaponCollision = 0;
                 break;
             // VIVE END - new options

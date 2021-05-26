@@ -537,6 +537,7 @@ vivecraft.options.menuworld.none=None
 vivecraft.options.rightclickdelay.slow=Slow
 vivecraft.options.rightclickdelay.slower=Slower
 vivecraft.options.rightclickdelay.slowest=Slowest
+vivecraft.options.weaponcollison.weapons=Weapons
 
 # Button text
 vivecraft.gui.ok=OK
