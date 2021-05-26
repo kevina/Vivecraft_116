@@ -28,7 +28,7 @@ def create_patch( target_dir, src_file, mod_file, label, patch_file ):
     stdout, stderr = process.communicate()
     if stdout:
         with open( patch_file, 'wb') as out:
-            out.write( stdout.replace('\r\n','\n').replace('\r','\n') )
+            out.write( stdout.replace('\r\n','\n').replace('\r','\n').replace('\n','\r\n'))
 
 def pythonisdumb(func, path, excinfo):
     print path + str(excinfo)
