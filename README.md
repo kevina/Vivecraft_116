@@ -1,3 +1,12 @@
+Personal fork for Vivecraft
+=========
+
+Contains various experemental changes.
+
+Original README below.
+
+_kevina_
+
 Vivecraft for Minecraft 1.16
 =========
 
